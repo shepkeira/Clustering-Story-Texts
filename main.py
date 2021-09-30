@@ -54,7 +54,9 @@ def main():
     write_clusters_to_file(cluster_a, cluster_b)
     # Create dendogram
     shc.dendrogram((shc.linkage(df_matrix, method ='single')), labels=file_names, color_threshold=0.8, above_threshold_color="green")
-    # Save dendogram as image
+    # Display dendogram (uncomment line below to display dendogram instead of saving it)
+    # plt.show()
+    # Save dendogram as image (comment the 2 lines below to not overwrite the saved dendogram)
     path = os.path.join(os.getcwd(), "results", "dendogram.png")
     plt.savefig(path)
 
