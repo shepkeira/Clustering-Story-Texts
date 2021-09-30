@@ -1,8 +1,7 @@
-from document_vectors import document_vector
 import math
-## Computing Document Similarity
-# 1) For each pair of doucments, compute their cosine similarity, and store the results in an NxN matrix (where N= # documents here 28)
 
+# input: a list of document vectors and the file names for each document
+# output: a matrix and a list of file_names in the order placed in the matrix
 def cosine_matrix(document_vectors):
     matrix = []
     file_names = []
@@ -31,6 +30,8 @@ def cosine_similarity(doc_vec_1, doc_vec_2):
     cosine = dot_prod / vec_mag_prod
     return cosine
 
+# input: a vector of indeterminate length
+# output: the magnitude the vector
 def vector_magnitude(vector):
     vec_mag_sqared = 0
     for value in vector:
@@ -41,7 +42,6 @@ def vector_magnitude(vector):
 # input: two vecotrs of the same length
 # output: dot product of vectors (num)
 def dot_product(vec_1, vec_2):
-    #sum of di1*di2
     dot_prod = 0
     length_1 = len(vec_1)
     length_2 = len(vec_2)

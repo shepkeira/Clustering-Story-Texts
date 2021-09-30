@@ -65,11 +65,20 @@ def get_file_contents():
         print("Files not found.")
         return 0
 
+# input: takes in a tabulare table
+# output: writes the results to results/cosine_matrix.txt
 def write_matrix_to_file(table):
-    # file_contents = ""
-    # for file_name, metrics in table.items():
-    #     file_contents += file_name + ": " + (' ').join(map(str, metrics)) + "\n"
-    path = os.path.join(os.getcwd(), "matrix", "cosine_matrix")
+    path = os.path.join(os.getcwd(), "results", "cosine_matrix.txt")
     f = open(path, 'w')
     f.write(table)
+    f.close()
+
+# input: takes in 2 clusters (a and b)
+# output: writes the results to results/clusters.txt each cluster on a new line
+def write_clusters_to_file(cluster_a, cluster_b):
+    path = os.path.join(os.getcwd(), "results", "clusters.txt")
+    f = open(path, 'w')
+    f.write(cluster_a)
+    f.write('\n')
+    f.write(cluster_b)
     f.close()

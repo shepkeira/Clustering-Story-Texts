@@ -13,7 +13,8 @@ def document_vector(terms, document, documents):
         d_vector.append(tfidf)
     return d_vector
 
-
+# input: a dictionary of file_names: docuements
+# output: a list of all the terms in the doucments (no duplicates)
 def all_terms(documents):
     terms = []
     for _name, doc in documents.items():
@@ -24,23 +25,6 @@ def all_terms(documents):
             if term not in terms:
                 terms.append(term)
     return terms
-
-
-# input: dictionary of documents
-# output: list of top 10% of terms found in each file, rounded down, no duplicates
-def top_10_percent_terms(documents):
-    terms = []
-    for _name, doc in documents.items():
-        document_array = re.split(" ", doc)
-        file_term_frequency_dict = all_terms_frequency(document_array)
-        length = len(file_term_frequency_dict)
-        ten_precent = math.floor(length * 0.1) #round down to keep #s minimal
-        n_terms = nlargest(ten_precent, file_term_frequency_dict, key = file_term_frequency_dict.get)
-        for term in n_terms:
-            if term not in terms:
-                terms.append(term)
-    return terms
-
 
 # tfidf(t, d, D) = tf(t,d) * idf(t,D)
 # input: string of term; dictionary of document term frequencies; documents in a dictionary
