@@ -5,13 +5,15 @@ import math
 
 def cosine_matrix(document_vectors):
     matrix = []
-    for _name_i, document_vector_i in document_vectors.items():
+    file_names = []
+    for name_i, document_vector_i in document_vectors.items():
         matrix_row_i = []
+        file_names.append(name_i)
         for _name_j, document_vector_j in document_vectors.items():
             value_i_j = cosine_similarity(document_vector_i, document_vector_j)
             matrix_row_i.append(value_i_j)
         matrix.append(matrix_row_i)
-    return matrix
+    return [matrix, file_names]
 
 # cos(theta) = d_1 dot d_2 / vect_mag(d_1) * vect_mag(d_2)
 # input: document vector (list) x 2
